@@ -1,0 +1,29 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    min-height: 100%;
+    background: #000000;
+    color: #FFFFFF;
+    position: relative;
+}
+
+#timeline {
+    margin-top: 10px;
+    height: 300px;
+    width: 100%;
+    left: 0px;
+    background: #CCCCCC;
+    position: absolute;
+}
+
+#stack-chart {
+    background-repeat: no-repeat;;
+    background-position-x: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 60%;
+}

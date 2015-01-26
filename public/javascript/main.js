@@ -9,4 +9,5 @@ $.get('session_history.csv', function (fileContent) {
 
     StackedChart.initialize(dates, statisticParser.groupByStatus(statuses)).show();
     TimelineChart.initialize(dates, statisticParser.getDurations()).show();
+    statisticParser.showDatesWithAbnormalNumberOfFailingBuilds();
 });

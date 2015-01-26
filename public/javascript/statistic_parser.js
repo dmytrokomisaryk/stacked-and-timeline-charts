@@ -1,7 +1,7 @@
 StatisticParser = {
 
     initialize: function (data) {
-        this.data = data;
+        this.data = data.reverse();
         return this;
     },
 
@@ -103,5 +103,48 @@ StatisticParser = {
         return $.map(self.getDates(), function (date) {
             return parseInt(self.averagesGroupedByDate[date].duration);
         });
+    },
+
+    showDatesWithAbnormalNumberOfFailingBuilds: function () {
+        var datesWithAbnormalNumberOfFailingBuilds = this.detectDateWithAbnormalNumberOfFailingBuilds();
+        var datesList = $('#dates-list');
+        var self = this;
+
+        $.each(datesWithAbnormalNumberOfFailingBuilds, function (date, amountOfFailingBuilds) {
+            datesList.append(self.createTableRow(date, amountOfFailingBuilds));
+        });
+
+    },
+
+    detectDateWithAbnormalNumberOfFailingBuilds: function () {
+        var result = {};
+        var self = this;
+
+        $.each(this.groupedByDate, function (date, rows) {
+            var amountOfFailedBuilds = 0;
+
+            $.each(rows, function (index, row) {
+                if (self.buildIsPassed(row)) { return }
+                amountOfFailedBuilds += 1
+            });
+
+            if (amountOfFailedBuilds <= 1) { return }
+            result[date] = amountOfFailedBuilds;
+        });
+
+        return result;
+    },
+
+    buildIsPassed: function (row) {
+        return row.summary_status == 'passed';
+    },
+
+    createTableRow: function (date, countFailures) {
+        var index = $('.date').length + 1;
+        return '<tr class="date">' +
+            '<td>' + index + '</td>' +
+            '<td>' + date + '</td>' +
+            '<td>' + countFailures + '</td>' +
+        '</tr>';
     }
 };

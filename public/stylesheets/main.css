@@ -10,20 +10,66 @@ body {
     position: relative;
 }
 
-#timeline {
-    margin-top: 10px;
-    height: 300px;
-    width: 100%;
-    left: 0px;
-    background: #CCCCCC;
-    position: absolute;
+.content,
+.footer {
+    height: 50%;
 }
 
-#stack-chart {
+.content #stack-chart {
     background-repeat: no-repeat;;
     background-position-x: center;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    height: 60%;
+    height: 100%;
+}
+
+#timeline {
+    margin-top: 10px;
+    height: 300px;
+    width: 100%;
+}
+
+.content #dates-with-abnormal-number-of-failed-builds {
+    height: 100%;
+    padding: 8px 15px 0px 0px;
+}
+
+.content #dates-with-abnormal-number-of-failed-builds .title {
+    width: 106%;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.content #dates-with-abnormal-number-of-failed-builds p {
+    font-size: 9px;
+    color: grey;
+}
+
+.content #dates-with-abnormal-number-of-failed-builds .list {
+    width: 102%;
+    overflow-y: auto;
+    height: 80%;
+}
+
+.content #dates-with-abnormal-number-of-failed-builds .list table {
+    padding-top: 10px;
+    padding-left: 25px;
+    font-size: 10px;
+    line-height: 25px;
+    overflow-y: scroll;
+}
+
+.content #dates-with-abnormal-number-of-failed-builds .list table tr {
+    text-align: center;
+}
+
+.content #dates-with-abnormal-number-of-failed-builds .list table tr th {
+    float: none;
+    text-align: center;
+}
+
+.content #dates-with-abnormal-number-of-failed-builds .list table tr.date td{
+    vertical-align: middle!important;
+    padding: 5px !important;
 }

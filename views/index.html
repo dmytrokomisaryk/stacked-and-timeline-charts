@@ -1,16 +1,42 @@
 <!DOCTYPE html>
 <html>
-<link type='text/css' rel='stylesheet' href='/stylesheets/main.css'>
-<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
-<script src='http://code.highcharts.com/highcharts.js'></script>
-<script src='/javascript/jquery.csv.js'></script>
-<script src='/javascript/statistic_parser.js'></script>
-<script src='/javascript/moment.js'></script>
-<script src='/javascript/charts/stacked.js'></script>
-<script src='/javascript/charts/timeline.js'></script>
-<script src='/javascript/main.js'></script>
-<body>
-<div id='stack-chart'></div>
-<div id='timeline'></div>
-</body>
+    <link type='text/css' rel='stylesheet' href='/stylesheets/main.css'>
+    <link type='text/css' rel='stylesheet' href='/stylesheets/bootstrap.min.css'>
+    <link type='text/css' rel='stylesheet' href='/stylesheets/bootstrap-theme.min.css'>
+
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+    <script src='http://code.highcharts.com/highcharts.js'></script>
+    <script src='/javascript/jquery.csv.js'></script>
+    <script src='/javascript/bootstrap.min.js'></script>
+    <script src='/javascript/statistic_parser.js'></script>
+    <script src='/javascript/moment.js'></script>
+    <script src='/javascript/charts/stacked.js'></script>
+    <script src='/javascript/charts/timeline.js'></script>
+    <script src='/javascript/main.js'></script>
+
+    <body>
+        <div class='content'>
+            <div id='stack-chart' class='col-xs-10 col-sm-10 col-md-10 col-lg-10'></div>
+            <div id='dates-with-abnormal-number-of-failed-builds' class='col-xs-2 col-sm-2 col-md-2	col-lg-2'>
+                <div class='title'>Dates with "abnormal" number of failing builds.</div>
+                <p>* dates where amount of failures more than one</p>
+                <div class='list'>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Date</th>
+                                <th>Amount of failures</th>
+                            </tr>
+                        </thead>
+                        <tbody id='dates-list'>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class='footer2'>
+            <div id='timeline' class='col-xs-12 col-sm-12 col-md-12 col-lg-12'></div>
+        </div>
+    </body>
 </html>

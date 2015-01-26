@@ -33,6 +33,13 @@ TimelineChart = {
               }]
           },
 
+          legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle',
+              borderWidth: 0
+          },
+
           series: [{
               name: 'Duration',
               data: this.data
